@@ -1,6 +1,5 @@
   
 import styled, { createGlobalStyle } from 'styled-components';
-import BGImg from '../Imgs/Bullet-train.jpg';
 
 
 export const GlobalStyle = createGlobalStyle`
@@ -8,9 +7,6 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   body {
-  
-      background-image: url(${BGImg});
-      background-size: cover;
   
     margin: 0;
     padding: 0 20px;
