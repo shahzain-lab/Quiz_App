@@ -38,5 +38,5 @@ jobs:
         run: yarn build
       - name: installing surge
         run: npm install --global surge
-      - name: deploying surge
+      - name: deploying on surge
         run: surge ./build frequent-library.surge.sh --token ${{secrets.QUIZ_APP}}
