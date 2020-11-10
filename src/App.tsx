@@ -1,4 +1,4 @@
-
+import React from 'react';
 import {QuestionCard} from './components/QuestionCard';
 import {fetchQuizQuestion} from './components/API' ;
 import {QuestionState ,Difficulty} from './components/API';
