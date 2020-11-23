@@ -7,7 +7,9 @@ export const GlobalStyle = createGlobalStyle`
     height: 100%;
   }
   body {
-  
+    background: rgb(0,16,36);
+    background: linear-gradient(90deg, rgba(0,16,36,1) 0%, rgba(17,129,158,1) 10%, rgba(61,179,215,1) 17%, rgba(10,86,111,1) 26%, rgba(23,152,161,1) 37%, rgba(22,177,181,1) 41%, rgba(23,189,217,1) 48%, rgba(17,138,163,1) 53%, rgba(13,98,124,1) 56%, rgba(94,191,215,1) 64%, rgba(23,135,164,1) 69%, rgba(42,188,223,1) 78%, rgba(48,167,194,1) 86%, rgba(32,132,156,1) 87%, rgba(73,224,255,1) 100%);
+   
     margin: 0;
     padding: 0 20px;
     display: flex;
