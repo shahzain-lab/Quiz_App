@@ -1,12 +1,14 @@
 import React from 'react';
 import FormCard from './components/FormCard';
+import { GlobalStyle, Wrapper, Heading } from './styles/App.styled';
 
 const App = () => {
     return (
-        <>
-            <h1>Hello World</h1>
+        <Wrapper>
+            <GlobalStyle />
+            <Heading>Quiz App</Heading>
             <FormCard />
-        </>
+        </Wrapper>
     )
 }
 

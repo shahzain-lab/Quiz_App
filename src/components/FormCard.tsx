@@ -4,6 +4,16 @@ import MenuItem from '@mui/material/MenuItem';
 import TextField from '@mui/material/TextField';
 import { Button } from '@mui/material';
 import { Category, fetchCategories } from '../API/API';
+import { Form } from '../styles/FormCard.styled';
+import { makeStyles } from '@mui/styles';
+
+
+const useStyles = makeStyles({
+    field: {
+        width: '100%',
+    }
+})
+
 
 function FormCard() {
     const [difficulty, setDifficulty] = useState('');
@@ -30,11 +40,12 @@ function FormCard() {
             setCategories(categories)
         }
         getCategories()
-    }, [])
+    }, []);
+    const classes = useStyles()
 
 
     return (
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
             <TextField
                 id="standard-select-currency"
                 select
@@ -43,6 +54,7 @@ function FormCard() {
                 onChange={handleTypeChange}
                 helperText="Please select difficulty level"
                 variant="standard"
+                className={classes.field}
                 required
             >
                 <MenuItem value="easy">Easy</MenuItem>
@@ -54,6 +66,7 @@ function FormCard() {
                 label="question amount"
                 defaultValue="5"
                 variant="standard"
+                className={classes.field}
                 required
             />
             <TextField
@@ -64,6 +77,7 @@ function FormCard() {
                 onChange={handleCategoryChange}
                 helperText="Please select your category"
                 variant="standard"
+                className={classes.field}
                 required
             >
                 {
@@ -77,7 +91,7 @@ function FormCard() {
                 }
             </TextField>
             <Button variant="contained" type="submit" color="secondary">Contained</Button>
-        </form>
+        </Form>
     )
 }
 
