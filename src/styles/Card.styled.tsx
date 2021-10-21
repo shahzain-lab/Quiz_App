@@ -12,3 +12,10 @@ export const Form = styled.form`
     border-left: 1px solid rgba(255, 255, 255, .1);
     backdrop-filter: blur(5px);
 `;
+
+// for FormCard component
+export const Wrapper = styled.div`
+position: relative;
+  height: 15rem;
+  width: 50vw;
+`

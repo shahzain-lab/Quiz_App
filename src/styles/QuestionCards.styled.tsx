@@ -5,6 +5,11 @@ interface StyledButtonProps {
     userClicked?: boolean
 }
 
+export const Wrapper = styled.div`
+  margin: 5% 0;
+  height: 20%;
+`
+
 export const StyledButton = styled.button<StyledButtonProps>`
  width: 100%;
  font-size: 1rem;
@@ -21,3 +26,4 @@ export const StyledButton = styled.button<StyledButtonProps>`
     )};
 color: white;
 `;
+

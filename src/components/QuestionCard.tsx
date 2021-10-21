@@ -1,11 +1,13 @@
 import React, { FormEvent } from 'react'
+// @mui
 import Divider from '@mui/material/Divider';
 import { Button } from '@mui/material';
 import Typography from '@mui/material/Typography';
 // styled-components
-import { StyledButton } from '../styles/Cards.styled';
-import { Form } from '../styles/FormCard.styled';
-import { UserAnswer } from '../App';
+import { StyledButton, Wrapper } from '../styles/QuestionCards.styled';
+import { Form } from '../styles/Card.styled';
+// types
+import { UserAnswer } from '../types/Quiz_Types';
 
 interface Props {
     questionNr: number;
@@ -17,7 +19,6 @@ interface Props {
     userAnswer?: UserAnswer;
 }
 
-
 const QuestionCard: React.FC<Props> = ({ questionNr,
     question,
     answers,
@@ -27,11 +28,12 @@ const QuestionCard: React.FC<Props> = ({ questionNr,
     userAnswer
 }) => {
 
+    //-prevent form submition
     const handleSubmit = (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
     }
-    return (
 
+    return (
         <Form onSubmit={handleSubmit}>
             <Typography variant="body1" color="darkgray" gutterBottom>
                 number of question:  {questionNr + 1}/{totalQuestion}
@@ -40,17 +42,19 @@ const QuestionCard: React.FC<Props> = ({ questionNr,
             <Typography variant="body2" color="white" gutterBottom>
                 {question}
             </Typography>
-            {answers.map(answer => (
-                <StyledButton
-                    key={answer}
-                    value={answer}
-                    correct={userAnswer?.correctAns === answer}
-                    userClicked={userAnswer?.answer === answer}
-                    onClick={callback}
-                    disabled={userAnswer?.answer ? true : false}
-                >{answer}
-                </StyledButton>
-            ))}
+            <Wrapper>
+                {answers.map(answer => (
+                    <StyledButton
+                        key={answer}
+                        value={answer}
+                        correct={userAnswer?.correctAns === answer}
+                        userClicked={userAnswer?.answer === answer}
+                        onClick={callback}
+                        disabled={userAnswer?.answer ? true : false}
+                    >{answer}
+                    </StyledButton>
+                ))}
+            </Wrapper>
             <Button variant="contained" color="secondary" onClick={nextQuestion}>Next Question</Button>
         </Form>
     )

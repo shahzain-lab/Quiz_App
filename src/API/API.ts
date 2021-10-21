@@ -1,25 +1,10 @@
-import { UserEndpoints } from "../components/FormCard";
+// UTILS
 import { shuffleArray } from "../components/Utils";
-
-const CATEGORY_URL = 'https://opentdb.com/api_category.php'
-
-export interface Category{
-    id: number,
-    name: string
-}
-
-interface Question{
-    correct: string;
-    correct_answer: string;
-    difficulty: string;
-    incorrect_answers: string[];
-    question: string;
-    type: string;
-}
-
-export type QuestionState = Question & {answers: string[]}
+// types
+import { Category, Question, UserEndpoints } from "../types/Quiz_Types";
 
 export const fetchCategories = async (): Promise<Category[]> =>  {
+    const CATEGORY_URL = 'https://opentdb.com/api_category.php';
     const {trivia_categories} = await (await fetch(CATEGORY_URL)).json();
     return trivia_categories;
 }
