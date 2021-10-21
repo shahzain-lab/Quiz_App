@@ -1,5 +1,6 @@
-.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root {
-  color: black !important;
+.css-kk1bwy-MuiButtonBase-root-MuiMenuItem-root,
+.MuiMenuItem-root .MuiMenuItem-gutters .MuiButtonBase-root .css-1km1ehz {
+  color: #2e2e2e !important;
   font-weight: bold;
 }
 
