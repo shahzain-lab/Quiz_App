@@ -6,6 +6,7 @@ import { Button } from '@mui/material';
 import { Category, fetchCategories } from '../API/API';
 import { Form } from '../styles/FormCard.styled';
 import '../styles/CustomForm.css';
+import Progress from './Progress';
 
 export interface UserEndpoints {
     questionAmt: number;
@@ -64,7 +65,6 @@ const FormCard: React.FC<Props> = ({ callback }) => {
                 label="Select"
                 value={difficulty}
                 onChange={handleTypeChange}
-                helperText="Please select difficulty level"
                 variant="standard"
                 color="secondary"
                 sx={{ width: '100%', marginBottom: '5%' }}
@@ -90,7 +90,6 @@ const FormCard: React.FC<Props> = ({ callback }) => {
                 label="Select"
                 value={category}
                 onChange={handleCategoryChange}
-                helperText="Please select your category"
                 variant="standard"
                 color="secondary"
                 sx={{ width: '100%', marginBottom: '7%' }}

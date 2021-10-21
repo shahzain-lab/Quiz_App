@@ -2,3 +2,9 @@
   color: black !important;
   font-weight: bold;
 }
+
+.css-1x51dt5-MuiInputBase-input-MuiInput-input,
+.css-1jz6lpv-MuiTypography-root,
+.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input.css-1rxz5jq-MuiSelect-select-MuiInputBase-input-MuiInput-input {
+  color: #6b6b6b !important;
+}
