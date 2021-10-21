@@ -12,6 +12,9 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    color: #dbdbdb !important;
+    letter-spacing: 2px !important;
+    font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 } 
 
 body{
@@ -34,6 +37,7 @@ body{
         position: absolute;
         left: 0;
         top: 0;
+        z-index: -23;
         width: 100%;
         height: 100%;
         background: linear-gradient(#2196f3, #e91e63);
@@ -45,7 +49,7 @@ body{
 export const Wrapper = styled.div`
     position: absolute;
     left: 50%;
-    top: 30%;
+    top: 40%;
     transform: translate(-50%, -50%)
 `
 
