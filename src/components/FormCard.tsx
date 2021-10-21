@@ -106,7 +106,7 @@ const FormCard: React.FC<Props> = ({ callback }) => {
                     )
                 }
             </TextField>
-            <Button variant="contained" type="submit" color="secondary">Contained</Button>
+            <Button variant="contained" type="submit" color="secondary">Start</Button>
         </Form>
     )
 }

@@ -1,20 +1,59 @@
-import React from 'react';
-import { allQuestions } from './API/API';
+import React, { useState } from 'react';
+// API
+import { allQuestions, QuestionState } from './API/API';
+// components
 import FormCard, { UserEndpoints } from './components/FormCard';
+import QuestionCard from './components/QuestionCard';
+import Progress from './components/Progress';
+// styling
 import { GlobalStyle, Wrapper, Heading } from './styles/App.styled';
 
 const App = () => {
+    const [questions, setQuestions] = useState<QuestionState[]>([])
+    const [loading, setLoading] = useState(false);
+    const [score, setScore] = useState(0);
+    const [questionNumber, setQuestionNumber] = useState(0);
+    const [totalQuestion, setTotalQuestion] = useState<number>(0);
+    const [result, setResult] = useState(false);
 
     const startTrivia = async (endpoints: UserEndpoints) => {
+        const { questionAmt } = endpoints;
+        setTotalQuestion(questionAmt);
+        setResult(false);
+        setLoading(true);
         const getQuestions = await allQuestions(endpoints);
+        setQuestions(getQuestions);
+        setScore(0);
+        setQuestionNumber(0)
+        setLoading(false);
     }
-
+    const handleNextQuestion = () => {
+        if (questionNumber !== totalQuestion - 1) {
+            setQuestionNumber(prev => prev + 1)
+        } else {
+            setResult(true);
+        }
+    }
 
     return (
         <Wrapper>
             <GlobalStyle />
             <Heading>Quiz App</Heading>
-            <FormCard callback={startTrivia} />
+            {questions.length ?
+                !result ? (
+                    <QuestionCard
+                        questionNr={questionNumber}
+                        question={questions[questionNumber].question}
+                        answers={questions[questionNumber].answers}
+                        nextQuestion={handleNextQuestion}
+                        totalQuestion={totalQuestion}
+                    />
+                ) : <h1>Results</h1> : loading ? (
+                    <Progress />
+                ) :
+                    <FormCard callback={startTrivia} />
+
+            }
         </Wrapper>
     )
 }
