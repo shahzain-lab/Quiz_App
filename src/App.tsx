@@ -6,8 +6,7 @@ import { GlobalStyle, Wrapper, Heading } from './styles/App.styled';
 const App = () => {
 
     const startTrivia = async (endpoints: UserEndpoints) => {
-        const { questionAmt, category, difficulty } = endpoints;
-        const getQuestions = await allQuestions();
+        const getQuestions = await allQuestions(endpoints);
     }
 
 
