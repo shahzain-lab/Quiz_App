@@ -5,29 +5,36 @@ const urlsToCache = [
     'static/js/0.chunk.js',
     '/static/js/main.chunk.js',
     'https://opentdb.com/api_category.php',
+    'https://opentdb.com/api.php'
  ];
 
 const self = this;
 
  //installing sw 
-self.addEventListener('install', (event) => {
-      event.waitUntil(
-          caches.open(CACHE_NAME)
-          .then((cache) => {
-              console.log('Opened cache');
-              return cache.addAll(urlsToCache)
-          })
-      )
-})
-
-// requesting
-
-self.addEventListener('fetch', (event) => {
-     event.respondWith(
-         caches.match(event.request)
-         .then(() => {
-             return fetch(event.request)
-             .catch(() =>  caches.match('index.html'))
-         })
-     )
-})
+ self.addEventListener("install", function (event) {
+    // Perform install steps
+    event.waitUntil(
+      caches
+        .open(CACHE_NAME)
+        .then(function (cache) {
+          console.log("Opened cache");
+          return cache.addAll(urlsToCache);
+        })
+        .catch((err) => {
+          console.log(err);
+        })
+    );
+  });
+  
+  self.addEventListener("fetch", function (event) {
+    event.respondWith(
+      caches.match(event.request).then(function (response) {
+        // Cache hit - return response
+        if (response) {
+          return response;
+        }
+        return fetch(event.request);
+        
+      }).catch(() =>  caches.match('offline.html'))
+    );
+  });
