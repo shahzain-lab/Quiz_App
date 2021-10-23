@@ -9,6 +9,7 @@ export const Ul = styled.ul`
   height: 15rem;
   li{
       height: 20%;
+      color: white;
   display: flex;
   justify-content: space-between;
   align-items: center;

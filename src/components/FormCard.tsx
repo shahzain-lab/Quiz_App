@@ -72,7 +72,7 @@ const FormCard: React.FC<Props> = ({ callback }) => {
                     onChange={handleTypeChange}
                     variant="standard"
                     color="secondary"
-                    sx={{ width: '100%', marginBottom: '5%' }}
+                    sx={{ width: '100%', marginBottom: '5%', '& .MuiInputLabel-root': { color: 'white' } }}
                     required
                 >
                     <MenuItem value="easy">Easy</MenuItem>
@@ -85,7 +85,7 @@ const FormCard: React.FC<Props> = ({ callback }) => {
                     value={questionAmt}
                     onChange={handleQuestionAmt}
                     variant="standard"
-                    sx={{ width: '100%', marginBottom: '5%' }}
+                    sx={{ width: '100%', marginBottom: '5%', '& .MuiInputLabel-root': { color: 'white' } }}
                     color="secondary"
                 />
 
@@ -96,7 +96,7 @@ const FormCard: React.FC<Props> = ({ callback }) => {
                     onChange={handleCategoryChange}
                     variant="standard"
                     color="secondary"
-                    sx={{ width: '100%', marginBottom: '7%' }}
+                    sx={{ width: '100%', marginBottom: '7%', '& .MuiInputLabel-root': { color: 'white' } }}
                     required
                 >
                     {

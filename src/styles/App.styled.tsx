@@ -12,7 +12,6 @@ export const GlobalStyle = createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    color: #fff !important;
     letter-spacing: 2px !important;
     font-family: Verdana, Geneva, Tahoma, sans-serif !important;
 } 
